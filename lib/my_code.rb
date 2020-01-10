@@ -13,12 +13,13 @@ def reduce (array, starting_point = nil)
     sum = starting_point
     counter = 0
   else
-    sum = array
+    sum = array[0]
+    counter = 1
   end
   while counter < array.length do
-    yield(starting_point, array[counter])
+    sum = yield(starting_point, array[counter])
     counter += 1
   end
-  starting_point
+  sum
 end
 
